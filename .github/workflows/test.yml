@@ -18,7 +18,11 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10' 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          name: stackhpc/magnum-capi-helm
+      - name: run devstack
+        command: ./devstack/contrib/new-devstack.sh
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
 
