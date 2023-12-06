@@ -20,7 +20,7 @@ jobs:
           python-version: '3.10' 
       - uses: actions/checkout@v3
         with:
-          name: stackhpc/magnum-capi-helm
+          repository: stackhpc/magnum-capi-helm
       - name: run devstack
         run: ./devstack/contrib/new-devstack.sh
       - name: Setup upterm session
