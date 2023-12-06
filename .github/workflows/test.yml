@@ -23,6 +23,12 @@ jobs:
           repository: stackhpc/magnum-capi-helm
       - name: remove tty line
         run: sed -i '/sudo chmod go+rw `tty`/d' ./devstack/contrib/new-devstack.sh
+      - name: Pin PostgreSQL Common
+        run: |
+          echo 'Package: postgresql-common
+          Pin: version 238
+          Pin-Priority: 1001' | sudo tee /etc/apt/preferences.d/postgresql-common
+
       - name: run devstack
         run: bash -c './devstack/contrib/new-devstack.sh'
       - name: Setup upterm session
