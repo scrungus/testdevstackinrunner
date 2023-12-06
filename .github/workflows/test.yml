@@ -22,7 +22,7 @@ jobs:
         with:
           name: stackhpc/magnum-capi-helm
       - name: run devstack
-        command: ./devstack/contrib/new-devstack.sh
+        run: ./devstack/contrib/new-devstack.sh
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
 
